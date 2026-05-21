@@ -30,14 +30,6 @@
   <!-- ==================== 回到顶部按钮 ==================== -->
   <button class="back-to-top" id="backToTop" title="回到顶部">↑</button>
 
-  <!-- ==================== 图片预览模态框 ==================== -->
-  <div class="modal-overlay" id="imageModal">
-    <div class="modal-content">
-      <button class="modal-close" id="modalClose">✕</button>
-      <img src="" alt="回忆照片" id="modalImage">
-    </div>
-  </div>
-
   <!-- ==================== 第一节：Hero 区 ==================== -->
   <header class="hero" id="hero">
     <div class="hero-content">
@@ -94,118 +86,7 @@
     </div>
   </section>
 
-  <!-- ==================== 第三节：留言评论区 ==================== -->
-  <section class="section comments-section" id="commentsSection">
-    <div class="section-container">
-      <h2 class="section-title fade-up">
-        <span class="title-icon">💌</span>
-        留下你的祝福
-      </h2>
-      <p class="section-desc fade-up">每一条祝福，都是22岁最珍贵的礼物</p>
-
-      <!-- 留言统计 -->
-      <div class="comment-stats fade-up" id="commentStats">
-        <span class="stat-number" id="commentCount">0</span>
-        <span>条祝福</span>
-      </div>
-
-      <!-- 留言输入卡片 -->
-      <div class="comment-form-card glass-card fade-up">
-        <div class="form-row">
-          <input
-            type="text"
-            class="comment-input"
-            id="commentName"
-            placeholder="你的名字 ✨"
-            maxlength="20"
-          >
-        </div>
-        <div class="form-row">
-          <textarea
-            class="comment-input comment-textarea"
-            id="commentBody"
-            placeholder="写下你想对李晴说的话... 💕"
-            maxlength="500"
-            rows="3"
-          ></textarea>
-        </div>
-        <div class="form-row form-actions">
-          <button class="btn-send" id="sendCommentBtn">
-            <span class="btn-text">发送祝福</span>
-            <span class="btn-icon">💌</span>
-          </button>
-          <span class="form-hint" id="commentHint"></span>
-        </div>
-      </div>
-
-      <!-- 留言列表 -->
-      <div class="comments-list" id="commentsList">
-        <!-- 空状态 -->
-        <div class="comments-empty" id="commentsEmpty">
-          <span class="empty-icon">✨</span>
-          <p>成为第一个送上生日祝福的人吧 ✨</p>
-        </div>
-        <!-- 加载状态 -->
-        <div class="comments-loading" id="commentsLoading">
-          <div class="spinner"></div>
-          <p>正在加载祝福...</p>
-        </div>
-      </div>
-
-      <!-- 翻页按钮 -->
-      <div class="pagination" id="commentsPagination"></div>
-    </div>
-  </section>
-
-  <!-- ==================== 第四节：回忆照片墙 ==================== -->
-  <section class="section photos-section" id="photosSection">
-    <div class="section-container">
-      <h2 class="section-title fade-up">
-        <span class="title-icon">📸</span>
-        我们的回忆
-      </h2>
-      <p class="section-desc fade-up">分享你和李晴的美好瞬间</p>
-
-      <!-- 上传卡片 -->
-      <div class="upload-card glass-card fade-up">
-        <label class="upload-area" id="uploadArea">
-          <input
-            type="file"
-            accept="image/*"
-            class="upload-input"
-            id="photoInput"
-            hidden
-          >
-          <div class="upload-content">
-            <span class="upload-icon">📷</span>
-            <span class="upload-text">点击上传回忆照片</span>
-            <span class="upload-subtext">支持 JPG / PNG，最大 10MB</span>
-          </div>
-        </label>
-        <!-- 上传进度条 -->
-        <div class="upload-progress" id="uploadProgress">
-          <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
-          </div>
-          <span class="progress-text" id="progressText">上传中...</span>
-        </div>
-      </div>
-
-      <!-- 照片瀑布流 -->
-      <div class="photos-grid" id="photosGrid">
-        <!-- 空状态 -->
-        <div class="photos-empty" id="photosEmpty">
-        </div>
-        <!-- 加载状态 -->
-        <div class="photos-loading" id="photosLoading">
-          <div class="spinner"></div>
-          <p>加载回忆中...</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== 第五节：Footer ==================== -->
+  <!-- ==================== 第三节：Footer ==================== -->
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-fireworks">
