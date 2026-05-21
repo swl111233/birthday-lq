@@ -7,16 +7,16 @@
 const CONFIG = {
   // GitHub Issues 配置（留言功能）
   github: {
-    owner: 'YOUR_GITHUB_USERNAME',      // ← 改成你的 GitHub 用户名
+    owner: 'swl111233',      // ← 改成你的 GitHub 用户名
     repo: 'birthday-lq',                 // ← 改成你的仓库名
-    token: 'ghp_YOUR_TOKEN_HERE',        // ← 粘贴你的 GitHub Token
+    token: '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',        // ← 粘贴你的 GitHub Token
     label: 'birthday-comment',           // Issues 标签
     perPage: 10,
   },
 
   // Cloudinary 配置（照片上传功能）
   cloudinary: {
-    cloudName: 'YOUR_CLOUD_NAME',        // ← 改成你的 Cloudinary Cloud Name
+    cloudName: '1399793684',        // ← 改成你的 Cloudinary Cloud Name
     uploadPreset: 'birthday_photos',      // ← 改成你的 Upload Preset 名称
     folder: 'birthday-lq-photos',        // 存储的文件夹名
     maxResults: 30,                      // 最多显示的照片数量
