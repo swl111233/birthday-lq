@@ -1,0 +1,21 @@
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 音频文件（太大，不适合Git）
+music/*.mp3
+music/*.wav
+
+# 视频文件（太大，不适合Git）
+*.mp4
+*.mov
+
+# 敏感配置（如果拆分出来）
+js/config.local.js

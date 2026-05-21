@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>迎接李晴的22岁 🎂</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==================== 页面加载动画 ==================== -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <span class="loading-emoji">🎂</span>
+      <p class="loading-text" id="loadingTypewriter"></p>
+    </div>
+  </div>
+
+  <!-- ==================== 粒子画布（背景漂浮特效） ==================== -->
+  <canvas id="particlesCanvas"></canvas>
+
+  <!-- ==================== 音乐播放器按钮 ==================== -->
+  <div class="music-player" id="musicPlayer">
+    <button class="music-btn" id="musicBtn" title="播放/暂停音乐">
+      <span class="music-disc"></span>
+      <span class="music-icon">🎵</span>
+    </button>
+  </div>
+
+  <!-- ==================== 回到顶部按钮 ==================== -->
+  <button class="back-to-top" id="backToTop" title="回到顶部">↑</button>
+
+  <!-- ==================== 图片预览模态框 ==================== -->
+  <div class="modal-overlay" id="imageModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">✕</button>
+      <img src="" alt="回忆照片" id="modalImage">
+    </div>
+  </div>
+
+  <!-- ==================== 第一节：Hero 区 ==================== -->
+  <header class="hero" id="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="title-line">迎接李晴的</span>
+        <span class="title-line title-highlight">22岁</span>
+        <span class="title-emoji">🎂</span>
+      </h1>
+      <p class="hero-subtitle" id="heroSubtitle"></p>
+      <p class="hero-date">2026 · 生日快乐</p>
+      <div class="hero-scroll-hint">
+        <span>往下滑动</span>
+        <span class="scroll-arrow">↓</span>
+      </div>
+    </div>
+    <!-- 装饰气球 -->
+    <div class="hero-balloons">
+      <span class="balloon b1">🎈</span>
+      <span class="balloon b2">🎈</span>
+      <span class="balloon b3">🎈</span>
+      <span class="balloon b4">🎈</span>
+      <span class="balloon b5">🎈</span>
+    </div>
+  </header>
+
+  <!-- ==================== 第二节：视频播放区 ==================== -->
+  <section class="section video-section" id="videoSection">
+    <div class="section-container">
+      <h2 class="section-title fade-up">
+        <span class="title-icon">🎥</span>
+        这是大家送给李晴的生日纪念
+      </h2>
+      <div class="video-card glass-card fade-up">
+        <div class="video-wrapper">
+          <video
+            id="birthdayVideo"
+            src="HBD.mp4"
+            controls
+            muted
+            playsinline
+            preload="metadata"
+            poster=""
+          ></video>
+          <!-- 自定义播放按钮覆盖层 -->
+          <div class="video-overlay" id="videoOverlay">
+            <button class="video-play-btn" id="videoPlayBtn">
+              <span>▶</span>
+            </button>
+          </div>
+        </div>
+        <!-- 电影风格装饰条 -->
+        <div class="film-strip top"></div>
+        <div class="film-strip bottom"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 第三节：留言评论区 ==================== -->
+  <section class="section comments-section" id="commentsSection">
+    <div class="section-container">
+      <h2 class="section-title fade-up">
+        <span class="title-icon">💌</span>
+        留下你的祝福
+      </h2>
+      <p class="section-desc fade-up">每一条祝福，都是22岁最珍贵的礼物</p>
+
+      <!-- 留言统计 -->
+      <div class="comment-stats fade-up" id="commentStats">
+        <span class="stat-number" id="commentCount">0</span>
+        <span>条祝福</span>
+      </div>
+
+      <!-- 留言输入卡片 -->
+      <div class="comment-form-card glass-card fade-up">
+        <div class="form-row">
+          <input
+            type="text"
+            class="comment-input"
+            id="commentName"
+            placeholder="你的名字 ✨"
+            maxlength="20"
+          >
+        </div>
+        <div class="form-row">
+          <textarea
+            class="comment-input comment-textarea"
+            id="commentBody"
+            placeholder="写下你想对李晴说的话... 💕"
+            maxlength="500"
+            rows="3"
+          ></textarea>
+        </div>
+        <div class="form-row form-actions">
+          <button class="btn-send" id="sendCommentBtn">
+            <span class="btn-text">发送祝福</span>
+            <span class="btn-icon">💌</span>
+          </button>
+          <span class="form-hint" id="commentHint"></span>
+        </div>
+      </div>
+
+      <!-- 留言列表 -->
+      <div class="comments-list" id="commentsList">
+        <!-- 空状态 -->
+        <div class="comments-empty" id="commentsEmpty">
+          <span class="empty-icon">✨</span>
+          <p>成为第一个送上生日祝福的人吧 ✨</p>
+        </div>
+        <!-- 加载状态 -->
+        <div class="comments-loading" id="commentsLoading">
+          <div class="spinner"></div>
+          <p>正在加载祝福...</p>
+        </div>
+      </div>
+
+      <!-- 翻页按钮 -->
+      <div class="pagination" id="commentsPagination"></div>
+    </div>
+  </section>
+
+  <!-- ==================== 第四节：回忆照片墙 ==================== -->
+  <section class="section photos-section" id="photosSection">
+    <div class="section-container">
+      <h2 class="section-title fade-up">
+        <span class="title-icon">📸</span>
+        我们的回忆
+      </h2>
+      <p class="section-desc fade-up">分享你和李晴的美好瞬间</p>
+
+      <!-- 上传卡片 -->
+      <div class="upload-card glass-card fade-up">
+        <label class="upload-area" id="uploadArea">
+          <input
+            type="file"
+            accept="image/*"
+            class="upload-input"
+            id="photoInput"
+            hidden
+          >
+          <div class="upload-content">
+            <span class="upload-icon">📷</span>
+            <span class="upload-text">点击上传回忆照片</span>
+            <span class="upload-subtext">支持 JPG / PNG，最大 10MB</span>
+          </div>
+        </label>
+        <!-- 上传进度条 -->
+        <div class="upload-progress" id="uploadProgress">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <span class="progress-text" id="progressText">上传中...</span>
+        </div>
+      </div>
+
+      <!-- 照片瀑布流 -->
+      <div class="photos-grid" id="photosGrid">
+        <!-- 空状态 -->
+        <div class="photos-empty" id="photosEmpty">
+          <span class="empty-icon">🖼️</span>
+          <p>还没有回忆照片，快来上传第一张吧 📸</p>
+        </div>
+        <!-- 加载状态 -->
+        <div class="photos-loading" id="photosLoading">
+          <div class="spinner"></div>
+          <p>加载回忆中...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 第五节：Footer ==================== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-fireworks">
+        <span>🎆</span><span>🎇</span><span>✨</span><span>🎆</span><span>🎇</span>
+      </div>
+      <p class="footer-text">22岁的故事，才刚刚开始 ❤️</p>
+      <p class="footer-sub">谢谢你出现在我们的青春里</p>
+    </div>
+  </footer>
+
+  <!-- ==================== 点击爱心特效元素池 ==================== -->
+  <div id="heartsContainer"></div>
+
+  <!-- ==================== JavaScript ==================== -->
+  <script src="js/app.js"></script>
+</body>
+</html>
